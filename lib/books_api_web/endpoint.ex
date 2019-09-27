@@ -3,7 +3,9 @@ defmodule BooksApiWeb.Endpoint do
 
   socket "/socket", BooksApiWeb.UserSocket,
     websocket: true,
-    longpoll: false
+    longpoll: false,
+    debug_errors: false
+
 
   # Serve at "/" the static files from "priv/static" directory.
   #
