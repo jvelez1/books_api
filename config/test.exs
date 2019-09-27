@@ -2,10 +2,10 @@ use Mix.Config
 
 # Configure your database
 config :books_api, BooksApi.Repo,
-  username: "root",
-  password: "root",
+  username: System.get_env("DB_USERNAME"),
+  password: System.get_env("DB_PASSWORD"),
   database: "books_api_test",
-  hostname: "localhost",
+  hostname: System.get_env("DB_HOSTNAME"),
   pool: Ecto.Adapters.SQL.Sandbox
 
 # We don't run a server during test. If one is required,

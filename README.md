@@ -1,19 +1,19 @@
 # BooksApi
 
-To start your Phoenix server:
+To run the project it is necessary to have docker installed
 
-  * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
-  * Start Phoenix endpoint with `mix phx.server`
+To build the image: 
+  * docker-compose build
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+To run the tests: 
+  * docker-compose run test
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+Before start the server should run: 
 
-## Learn more
+  * docker-compose run web mix ecto.setup
 
-  * Official website: http://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Mailing list: http://groups.google.com/group/phoenix-talk
-  * Source: https://github.com/phoenixframework/phoenix
+To run the web server: 
+  * docker-compose up web
+
+Now you can visit [`localhost:4000/api`](http://localhost:4000) from your browser or postman
+
