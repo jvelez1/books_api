@@ -11,6 +11,6 @@ defmodule BooksApiWeb.Router do
     resources "/users", UserController, except: [:new, :edit]
     resources "/auth", AuthController, only: [:create]
     resources "/ping", PingController, only: [:index]
-
+    resources "/authors", AuthorController, only: [:index, :create, :show]
   end
 end
