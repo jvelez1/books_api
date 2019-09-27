@@ -11,6 +11,7 @@ defmodule BooksApi.Author do
     field :first_name, :string
     field :last_name, :string
 
+    has_many :books, BooksApi.Book
     timestamps()
   end
 
@@ -22,7 +23,9 @@ defmodule BooksApi.Author do
   end
 
   def list_all do
-    Repo.all(Author)
+    Author
+    |> Repo.all
+    |> Repo.preload(:books)
   end
 
   def create(attrs \\ %{}) do
@@ -31,5 +34,9 @@ defmodule BooksApi.Author do
     |> Repo.insert()
   end
 
-  def get_author(author_id), do: Repo.get!(Author, author_id)
+  def get_author(author_id) do
+    Author
+    |> Repo.get!(author_id)
+    |> Repo.preload(:books)
+  end
 end
