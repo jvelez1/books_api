@@ -2,7 +2,6 @@ defmodule BooksApiWeb.AuthControllerTest do
   use BooksApiWeb.ConnCase
 
   alias BooksApi.Auth
-  alias BooksApi.Auth.User
 
   @current_user_attrs %{
     email: "some current user email",

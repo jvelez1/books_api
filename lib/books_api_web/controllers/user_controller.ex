@@ -4,6 +4,7 @@ defmodule BooksApiWeb.UserController do
   alias BooksApi.Auth
   alias BooksApi.Auth.User
 
+  plug BooksApiWeb.Plugs.RequireAuth when action in [:show, :update, :index]
   action_fallback BooksApiWeb.FallbackController
 
   def index(conn, _params) do

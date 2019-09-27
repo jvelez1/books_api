@@ -25,7 +25,7 @@ defmodule BooksApi.AuthTest do
     end
 
     test "list_users/0 returns all users" do
-      user = user_fixture()
+      user_fixture()
       assert Auth.list_users() != []
     end
 
