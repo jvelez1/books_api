@@ -15,13 +15,13 @@ defmodule BooksApiWeb.AuthorController do
     render(conn, "show.json", author: author)
   end
 
-  def create(conn, %{"author" => author_params}) do
+  def create(conn, %{"authors" => author_params}) do
 
     with {:ok, %Author{} = author} <- Author.create(author_params) do
       conn
       |> put_status(:created)
       |> put_resp_header("location", Routes.author_path(conn, :show, author))
-      |> render("show.json", author: author)
+      |> render("show.json", author: Author.get_author(author.id))
     end
   end
 end

@@ -20,7 +20,7 @@ defmodule BooksApiWeb.BookController do
       conn
       |> put_status(:created)
       |> put_resp_header("location", Routes.book_path(conn, :show, book))
-      |> render("show.json", book: book)
+      |> render("show.json", book: Book.get_book(book.id))
     end
   end
 end
