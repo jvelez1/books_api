@@ -11,7 +11,7 @@ defmodule BooksApi.Author do
     field :first_name, :string
     field :last_name, :string
 
-    has_many :books, BooksApi.Book
+    has_many :books, BooksApi.Book, on_delete: :delete_all
     timestamps()
   end
 
@@ -38,5 +38,15 @@ defmodule BooksApi.Author do
     Author
     |> Repo.get!(author_id)
     |> Repo.preload(:books)
+  end
+
+  def update_author(%Author{} = author, attrs) do
+    author
+    |> Author.changeset(attrs)
+    |> Repo.update()
+  end
+
+  def delete_author(%Author{} = author) do
+    Repo.delete(author)
   end
 end

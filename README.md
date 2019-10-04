@@ -5,12 +5,12 @@ To run the project it is necessary to have docker installed
 To build the image: 
   * docker-compose build
 
-To run the tests: 
-  * docker-compose run test
-
 Before start the server should run: 
 
   * docker-compose run web mix ecto.setup
+
+To run the tests: 
+  * docker-compose run test
 
 To run the web server: 
   * docker-compose up web
@@ -22,6 +22,8 @@ Now you can visit [`localhost:4000/api`](http://localhost:4000/api) from your br
 **Sessions**
 
 > /api/auth
+
+> post
 
 body: 
 
@@ -51,8 +53,7 @@ error response:
 ```
 **Authors**
 > /api/authors
-*post*
-
+> post
 body
 
 ```Json
@@ -76,7 +77,7 @@ response:
 ```
 
 > /api/authors
-*get*
+> get
 
 ```Json
 {
@@ -97,16 +98,25 @@ response:
     ]
 }
 ```
-
+> /api/authors/1
+> delete
+```
+{
+    "ok": {
+        "detail": "author deleted"
+    }
+}
+```
 
 **Books**
 > /api/books
 
-*post*
+> post
+
 body
 
 ```Json
-{ "book": {
+{ "books": {
   "title": "la vida e bella",
   "description": "some description",
   "year": 2010,
@@ -182,6 +192,16 @@ error response:
 {
     "errors": {
         "detail": "You must logged in"
+    }
+}
+```
+
+> /api/books/1
+> delete
+```
+{
+    "ok": {
+        "detail": "book deleted"
     }
 }
 ```

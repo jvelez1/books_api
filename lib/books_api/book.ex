@@ -40,4 +40,14 @@ defmodule BooksApi.Book do
     |> Repo.get!(book_id)
     |> Repo.preload(:author)
   end
+
+  def update_book(%Book{} = book, attrs) do
+    book
+    |> Book.changeset(attrs)
+    |> Repo.update()
+  end
+
+  def delete_book(%Book{} = book) do
+    Repo.delete(book)
+  end
 end
